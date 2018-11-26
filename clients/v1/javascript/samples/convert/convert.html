@@ -40,6 +40,7 @@
 				    
 				        var reader = new FileReader();
 				
+						var t0 = performance.now();
 						//** Read the file into base64 encoded string using FileReader object.
 				        reader.onload = function(reader_event) 
 						{
@@ -110,6 +111,8 @@
 									{
 										// ** Convert to Blob.
                                         var file_blob = CreateBlob(data['processed_file_content'])
+										var t1 = performance.now();
+										console.log("Conversion took " + (t1 - t0) + " milliseconds.");
 													
 										// ** Prompt user to save or open the converted file																											
 										if (window.navigator.msSaveBlob) { 
